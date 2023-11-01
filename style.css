@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-size: 1.2rem;
+}
+
+.calculator{
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 400px;
+    /**position absolute verip ve altındaki top, left ve transfrom ile ortalayacağız programımızı**/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.calculator-input{
+    width: 100%; /**100% ile rakamların yazılaağı inputu tam ekran kaplatmış oluyoruz border içine**/
+    font-size: 4rem; /**font-size ile rakamların yazılacağı input boyutunu ayarlamış oluyoruz**/
+    height: 70px;
+    border: none;
+    background-color: #252525;
+    color: whitesmoke;
+    text-align: right; /**text-align right ile satırı sağ tarafa alıyoruz**/
+    /**padding ile ise yazılacak rakamlarımızı input içinde paragraf başı gibi yapıyoruz**/
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+button{
+    height: 50px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #c4c4c4;
+    background-color: transparent;
+    font-size: 2.5rem; /**Buttonların boyutunu ayarlıyoruz **/
+    color: #333;
+}
+
+/** grid aracılığı ile tüm buttonlarımızı hizaya getiriyoruz!! **/
+
+.calculator-keys{
+    display: grid; /**bu kod ile alt alta alıyoruz buttonları**/
+
+    /**bu kod ile ise repat 4 ile her kolanu 4 er button yapıyor yanyana **/
+    /** 1fr ile ise boyutlarını eşitliyoruz yani her buttona 25% veriyoruz 4 button 100% ediyor**/
+    grid-template-columns: repeat(4, 1fr);
+
+    /**grid-gap:20px ile de butonların aralarını açıyoruz**/
+    grid-gap: 20px;
+    padding: 20px; /**buttonlarıda ortalamış oluyorz **/
+}
+
+/**hover ile mouse ile rakamların üzerine gelince renk değiştirme yapacağız**/
+button:hover{
+    background-color: #eaeaea;
+}
+
+
+/**burada ise toplama çıkarma işlemlerine renk vermiş oluyoruz!**/
+.operator{
+    color: #337cac;
+}
+
+.clear {
+    background-color: #f0595f; /** AC'ye renk vermiş oluyoruz**/
+    border-color: #b0353a; /**buttonun border çizgilerine renk vermiş oluyoruz**/
+    color: whitesmoke;
+}
+
+
+/**hover ile burada mouse AC buttonunun üzerine tutunca renk veriyoruz!**/
+.clear:hover{
+    background-color: #f17377;
+}
+
+
+/** eşittir buttonuna renk veriyoruz**/
+.equal-sign{
+    background-color: #4e9ed4;
+    border-color: #337cac;
+    color: whitesmoke;
+    height: 100%; /** ile eşittiri boydan uzatıyoruz!**/
+    grid-area: 2/4/6/5; /**2. satır 4. ve 6/5 kolonların yerlerini düzeltir!**/
+}
+
+/**hover ile burada mouse eşittir buttonunun üzerine tutunca renk veriyoruz!**/
+.equal-sign:hover{
+    background-color: #10466b;
+    border-color: #49b310;
+}
